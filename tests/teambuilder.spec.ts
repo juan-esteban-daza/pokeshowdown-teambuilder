@@ -25,9 +25,11 @@ test('Create and validate new Team', async ({ page }) => {
         // Flaky
         // await pokemonDetailList.setIVSpread(pokemon.ivSpread)
         await pokemonDetailList.verifyTotalEvCount()
+        await page.screenshot({ path: `${pokemon.name}.png` })
         await pokemonDetailList.goBackToTeam()
     }
 
+    await page.screenshot({ path: `team.png` })
     await teamCreationPage.validateTeam(testData.format, testData.gen)
 
 
